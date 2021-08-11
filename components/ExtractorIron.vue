@@ -1,6 +1,6 @@
 <template>
   <button @click="activated">
-    Mine
+    Iron Ore x{{ amount }}
   </button>
 </template>
 
@@ -8,11 +8,17 @@
 import IronOre from '~/items/IronOre'
 
 export default {
+  name: 'ExtractorIron',
+  data () {
+    return {
+      amount: 1
+    }
+  },
   methods: {
     activated () {
       this.$store.commit('inventory/add', {
         item: IronOre,
-        amount: 1
+        amount: this.amount
       })
     }
   }
