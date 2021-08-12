@@ -16,7 +16,7 @@ export default {
   },
   methods: {
     activated () {
-      this.$store.commit('inventory/add', {
+      this.$store.dispatch('inventory/give', {
         item: IronOre,
         amount: this.amount
       })

@@ -18,16 +18,16 @@ export default {
   },
   methods: {
     activated () {
-      this.$store.commit('inventory/take', {
+      this.$store.dispatch('inventory/take', {
         item: IronOre,
-        amount: this.consume,
-        callback: () => {
-          this.$store.commit('inventory/add', {
+        amount: -this.consume
+      })
+        .then((result) => {
+          this.$store.dispatch('inventory/give', {
             item: Iron,
             amount: this.give
           })
-        }
-      })
+        })
     }
   }
 }

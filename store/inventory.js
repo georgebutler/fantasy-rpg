@@ -3,42 +3,48 @@ export const state = () => ({
 })
 
 export const mutations = {
-  add (state, object) {
-    const index = state.items.findIndex(i => i.id === object.item.id)
-
-    if (index >= 0) {
-      state.items[index].amount = state.items[index].amount + object.amount
-    } else {
-      state.items.push({
-        ...object.item,
-        amount: object.amount
-      })
-    }
-
-    if (object.callback) {
-      object.callback()
-    }
+  addItem (state, payload) {
+    state.items.push({ ...payload.item, amount: payload.amount })
   },
 
-  take (state, object) {
-    const index = state.items.findIndex(i => i.id === object.item.id)
+  setItemAmount (state, payload) {
+    state.items[payload.index].amount = state.items[payload.index].amount + payload.amount
+  }
+}
 
-    if (index >= 0) {
-      if (state.items[index].amount - object.amount >= 0) {
-        state.items[index].amount = state.items[index].amount - object.amount
+export const actions = {
+  give ({ commit, state }, { item, amount }) {
+    return new Promise((resolve, reject) => {
+      const index = state.items.findIndex(current => current.id === item.id)
 
-        if (state.items[index].amount === 0) {
-          state.items.splice(state.items.indexOf(state.items[index]), 1)
-        }
-
-        if (object.callback) {
-          object.callback()
-        }
+      if (index >= 0) {
+        commit('setItemAmount', { index, amount })
+        resolve()
+      } else {
+        commit('addItem', { item, amount })
+        resolve()
       }
-    }
+
+      reject(new Error('Something went wrong.'))
+    })
   },
 
-  remove (state, { item }) {
-    state.items.splice(state.items.indexOf(item), 1)
+  take ({ commit, state }, { item, amount }) {
+    return new Promise((resolve, reject) => {
+      const index = state.items.findIndex(current => current.id === item.id)
+
+      if (index >= 0) {
+        const found = state.items[index]
+
+        if (found.amount + amount >= 0) {
+          commit('setItemAmount', { index, amount })
+          resolve()
+        }
+
+        reject(new Error('Not enough.'))
+      }
+
+      reject(new Error('Item does not exist in inventory.'))
+    })
   }
 }
