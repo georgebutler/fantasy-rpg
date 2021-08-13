@@ -7,8 +7,12 @@ export const mutations = {
     state.items.push({ ...payload.item, amount: payload.amount })
   },
 
-  setItemAmount (state, payload) {
+  increaseItemAmount (state, payload) {
     state.items[payload.index].amount = state.items[payload.index].amount + payload.amount
+  },
+
+  removeItem (state, payload) {
+    state.items.splice(payload.index, 1)
   }
 }
 
@@ -18,7 +22,7 @@ export const actions = {
       const index = state.items.findIndex(current => current.id === item.id)
 
       if (index >= 0) {
-        commit('setItemAmount', { index, amount })
+        commit('increaseItemAmount', { index, amount })
         resolve()
       } else {
         commit('addItem', { item, amount })
@@ -36,12 +40,15 @@ export const actions = {
       if (index >= 0) {
         const found = state.items[index]
 
-        if (found.amount + amount >= 0) {
-          commit('setItemAmount', { index, amount })
+        if (found.amount - amount > 0) {
+          commit('increaseItemAmount', { index, amount: -amount })
           resolve()
+        } else if (found.amount - amount === 0) {
+          commit('removeItem', { index })
+          resolve()
+        } else {
+          reject(new Error('Not enough.'))
         }
-
-        reject(new Error('Not enough.'))
       }
 
       reject(new Error('Item does not exist in inventory.'))

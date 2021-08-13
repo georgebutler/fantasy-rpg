@@ -20,7 +20,7 @@ export default {
     activated () {
       this.$store.dispatch('inventory/take', {
         item: IronOre,
-        amount: -this.consume
+        amount: this.consume
       })
         .then((result) => {
           this.$store.dispatch('inventory/give', {
