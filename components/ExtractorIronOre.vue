@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import IronOre from '~/items/IronOre'
+import IronOre from '~/data/items/IronOre'
 
 export default {
   name: 'ExtractorIron',

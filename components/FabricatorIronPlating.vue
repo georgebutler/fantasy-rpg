@@ -1,30 +1,30 @@
 <template>
   <button @click="activated">
-    Iron Ore x{{ consume }} -> Iron x{{ give }}
+    Iron x{{ consume }} -> Plating x{{ give }}
   </button>
 </template>
 
 <script>
-import IronOre from '~/data/items/IronOre'
 import Iron from '~/data/items/Iron'
+import IronPlating from '~/data/items/IronPlating'
 
 export default {
-  name: 'RefinerIron',
+  name: 'ExtractorIron',
   data () {
     return {
-      consume: 2,
+      consume: 1,
       give: 1
     }
   },
   methods: {
     activated () {
       this.$store.dispatch('inventory/take', {
-        item: IronOre,
+        item: Iron,
         amount: this.consume
       })
         .then((result) => {
           this.$store.dispatch('inventory/give', {
-            item: Iron,
+            item: IronPlating,
             amount: this.give
           })
         })

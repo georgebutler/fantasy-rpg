@@ -1,15 +1,28 @@
 <template>
   <div>
     <h2>Extractors</h2>
-    <ExtractorIron />
+    <ExtractorIronOre />
 
     <h2>Refiners</h2>
     <RefinerIron />
+
+    <h2>Fabricators</h2>
+    <FabricatorIronPlating />
 
     <h2>Inventory</h2>
     <ul>
       <li v-for="item in items" :key="item.id">
         <span>{{ item.name }} x{{ item.amount }}</span>
+      </li>
+    </ul>
+
+    <h2>Log</h2>
+    <button @click="addLogMessage">
+      Add Log Message
+    </button>
+    <ul>
+      <li v-for="message in messages" :key="message.timestamp">
+        <span>{{ message.text }}</span>
       </li>
     </ul>
   </div>
@@ -21,6 +34,16 @@ export default {
   computed: {
     items () {
       return this.$store.state.inventory.items
+    },
+    messages () {
+      return this.$store.state.log.messages
+    }
+  },
+  methods: {
+    addLogMessage () {
+      this.$store.dispatch('log/add', {
+        text: 'Hello world!'
+      })
     }
   }
 }

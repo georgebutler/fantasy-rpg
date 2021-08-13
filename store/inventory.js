@@ -47,7 +47,7 @@ export const actions = {
           commit('removeItem', { index })
           resolve()
         } else {
-          reject(new Error('Not enough.'))
+          reject(new Error('notEnough'))
         }
       }
 
