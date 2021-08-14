@@ -1,10 +1,10 @@
 export const state = () => ({
-  credits: 0
+  gold: 0
 })
 
 export const mutations = {
   addCurrency (state, payload) {
-    state.credits = state.credits + payload.amount
+    state.gold = state.gold + payload.amount
   }
 }
 
