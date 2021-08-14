@@ -1,14 +1,14 @@
 <template>
   <button @click="activated">
-    Iron Ore x{{ amount }}
+    Forage
   </button>
 </template>
 
 <script>
-import IronOre from '~/data/items/IronOre'
+import Grass from '~/data/items/Grass'
 
 export default {
-  name: 'ExtractorIron',
+  name: 'Forage',
   data () {
     return {
       amount: 1
@@ -17,7 +17,7 @@ export default {
   methods: {
     activated () {
       this.$store.dispatch('inventory/give', {
-        item: IronOre,
+        item: Grass,
         amount: this.amount
       })
     }

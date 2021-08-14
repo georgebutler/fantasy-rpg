@@ -2,34 +2,35 @@
   <div>
     <h1>Fantasy RPG</h1>
 
-    <h2>Extractors</h2>
-    <ExtractorIronOre />
+    <div>
+      <h2>Forest</h2>
+      <Forage />
+    </div>
 
-    <h2>Refiners</h2>
-    <RefinerIron />
+    <div>
+      <h2>Inventory</h2>
+      <ul>
+        <li v-for="item in items" :key="item.id">
+          <span>{{ item.name }} x{{ item.amount }}</span>
+          <button v-if="item.sellable">
+            Sell x1 - {{ calculateItemValue(item) }}
+          </button>
+          <img :src="item.icon">
+        </li>
+      </ul>
+    </div>
 
-    <h2>Fabricators</h2>
-    <FabricatorIronPlating />
-
-    <h2>Inventory</h2>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        <span>{{ item.name }} x{{ item.amount }}</span>
-        <button v-if="item.sellable">
-          Sell x1 - {{ calculateItemValue(item) }}
-        </button>
-      </li>
-    </ul>
-
-    <h2>Log</h2>
-    <button @click="addLogMessage">
-      Add Log Message
-    </button>
-    <ul>
-      <li v-for="message in messages" :key="message.timestamp">
-        <span>{{ message.text }}</span>
-      </li>
-    </ul>
+    <div>
+      <h2>Log</h2>
+      <button @click="addLogMessage">
+        Add Log Message
+      </button>
+      <ul>
+        <li v-for="message in messages" :key="message.timestamp">
+          <span>{{ message.text }}</span>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
