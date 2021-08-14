@@ -4,7 +4,7 @@ export const state = () => ({
 
 export const mutations = {
   addCurrency (state, payload) {
-    state.credits = Math.max(state.credits + payload.amount, 0)
+    state.credits = state.credits + payload.amount
   }
 }
 

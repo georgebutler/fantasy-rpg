@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1>Fantasy RPG</h1>
+
     <h2>Extractors</h2>
     <ExtractorIronOre />
 
