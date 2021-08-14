@@ -6,15 +6,16 @@
       <li>Gold: {{ gold }}</li>
     </ul>
     <h5>Items</h5>
-    <ul>
-      <li v-for="item in items" :key="item.id">
-        <span>{{ item.name }} x{{ item.amount }}</span>
+    <div class="inventory">
+      <div v-for="item in items" :key="item.id" class="item">
+        <!-- <span>{{ item.name }} x{{ item.amount }}</span>
         <button v-if="item.sellable" @click="sellItem(item)">
           Sell x1 - {{ calculateItemValue(item) }}
         </button>
-        <img :src="item.icon">
-      </li>
-    </ul>
+        -->
+        <img class="icon" :alt="item.name" :src="item.icon">
+      </div>
+    </div>
   </div>
 </template>
 
@@ -50,3 +51,19 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.wrapper {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.item {
+  order: 0;
+  height: 64px;
+}
+
+.item>.icon {
+  height: 100%;
+}
+</style>
