@@ -1,7 +1,7 @@
 export default {
   id: 'Grass',
   name: 'Grass',
-  icon: `${require('~/assets/images/items/29_b.png')}`,
+  icon: `${require('~/assets/images/items/grass.png')}`,
   sellable: true,
   value: 1
 }
