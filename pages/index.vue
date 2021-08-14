@@ -13,6 +13,9 @@
     <ul>
       <li v-for="item in items" :key="item.id">
         <span>{{ item.name }} x{{ item.amount }}</span>
+        <button v-if="item.sellable">
+          Sell x1 - {{ calculateItemValue(item) }}
+        </button>
       </li>
     </ul>
 
@@ -37,6 +40,9 @@ export default {
     },
     messages () {
       return this.$store.state.log.messages
+    },
+    itemPrice (item) {
+      return item.basePrice
     }
   },
   methods: {
@@ -44,6 +50,9 @@ export default {
       this.$store.dispatch('log/add', {
         text: 'Hello world!'
       })
+    },
+    calculateItemValue (item) {
+      return item.value
     }
   }
 }

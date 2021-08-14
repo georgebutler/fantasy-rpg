@@ -1,4 +1,6 @@
 export default {
   id: 'Iron',
-  name: 'Iron'
+  name: 'Iron',
+  sellable: true,
+  value: 5
 }

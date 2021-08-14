@@ -12,7 +12,7 @@ export default {
   name: 'ExtractorIron',
   data () {
     return {
-      consume: 1,
+      consume: 2,
       give: 1
     }
   },

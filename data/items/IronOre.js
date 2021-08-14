@@ -1,4 +1,5 @@
 export default {
   id: 'IronOre',
-  name: 'Iron Ore'
+  name: 'Iron Ore',
+  sellable: false
 }
