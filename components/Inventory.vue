@@ -6,9 +6,9 @@
       <div>Gold: {{ gold }}</div>
     </div>
     <h5>Items</h5>
-    <div class="inventory">
-      <div v-for="item in items" :key="item.id" class="item">
-        <img class="icon" :alt="item.name" :src="item.icon">
+    <div>
+      <div v-for="item in items" :key="item.id">
+        <img :alt="item.name" :src="item.icon">
         <span>{{ item.name }} x{{ item.amount }}</span>
         <button v-if="item.sellable" @click="sellItem(item)">
           Sell x1 - {{ calculateItemValue(item) }}

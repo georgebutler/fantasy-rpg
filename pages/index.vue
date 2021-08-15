@@ -1,7 +1,5 @@
 <template>
   <div>
-    <h1>Fantasy RPG</h1>
-
     <Location name="Forest">
       <Forage />
     </Location>

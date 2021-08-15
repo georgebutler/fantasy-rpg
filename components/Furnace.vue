@@ -2,9 +2,7 @@
   <div>
     <h4>Furnace</h4>
     <div>
-      <button @click="charcoal">
-        Charcoal
-      </button>
+      <img v-tooltip="'1x Wood -> 1x Charcoal'" :src="charcoalIcon" @click="craftCharcoal">
     </div>
   </div>
 </template>
@@ -21,8 +19,13 @@ export default {
       give: 1
     }
   },
+  computed: {
+    charcoalIcon () {
+      return Charcoal.icon
+    }
+  },
   methods: {
-    charcoal () {
+    craftCharcoal () {
       this.$store.dispatch('inventory/take', {
         item: Wood,
         amount: this.consume
