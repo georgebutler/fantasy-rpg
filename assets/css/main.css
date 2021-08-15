@@ -1,5 +1,41 @@
-html,
 body {
-    box-sizing: border-box;
-    font-family: sans-serif;
+  box-sizing: border-box;
+  font-family: sans-serif;
+  font-size: 16px;
+  line-height: 1.4;
+  text-align: justify;
+  background-color: #fefefe;
+  color: #111111;
+  overflow-x: hidden;
+}
+
+.inventory {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: flex-start;
+  align-items: flex-start;
+  align-content: flex-start;
+}
+  
+.item {
+  height: 4em;
+  border: 1px solid #111111;
+}
+
+.item>.icon {
+  height: 100%;
+}
+
+.location {
+  background-size: 25%;
+  background-image: url('@/assets/images/locations/Forest_ground_02.png');
+  background-repeat: repeat;
+  padding: 1rem 0;
+}
+
+button {
+  background-color: #efefef;
+  border: 1px solid #111111;
+  cursor: pointer;
 }

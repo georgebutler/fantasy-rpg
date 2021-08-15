@@ -2,9 +2,9 @@
   <div>
     <h2>Inventory</h2>
     <h5>Currency</h5>
-    <ul>
-      <li>Gold: {{ gold }}</li>
-    </ul>
+    <div>
+      <div>Gold: {{ gold }}</div>
+    </div>
     <h5>Items</h5>
     <div class="inventory">
       <div v-for="item in items" :key="item.id" class="item">
@@ -20,8 +20,6 @@
 </template>
 
 <script>
-import Grass from '~/data/items/Grass'
-
 export default {
   name: 'Inventory',
   computed: {
@@ -38,12 +36,11 @@ export default {
     },
     sellItem (item) {
       this.$store.dispatch('inventory/take', {
-        item: Grass,
+        item,
         amount: 1
       })
         .then(() => {
           this.$store.dispatch('currency/give', {
-            item: Grass,
             amount: item.value
           })
         })
@@ -51,23 +48,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.inventory {
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: flex-start;
-  align-items: flex-start;
-  align-content: flex-start;
-}
-
-.item {
-  order: 0;
-  height: 64px;
-}
-
-.item>.icon {
-  height: 100%;
-}
-</style>

@@ -2,7 +2,14 @@
   <div>
     <h1>Fantasy RPG</h1>
 
-    <Forest />
+    <Location name="Forest">
+      <Forage />
+    </Location>
+
+    <div>
+      <h2>Tower</h2>
+      <Furnace />
+    </div>
 
     <Inventory />
 

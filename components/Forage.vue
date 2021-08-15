@@ -5,7 +5,7 @@
 </template>
 
 <script>
-import Grass from '~/data/items/Grass'
+import Wood from '~/data/items/Wood'
 
 export default {
   name: 'Forage',
@@ -17,7 +17,7 @@ export default {
   methods: {
     activated () {
       this.$store.dispatch('inventory/give', {
-        item: Grass,
+        item: Wood,
         amount: this.amount
       })
     }
