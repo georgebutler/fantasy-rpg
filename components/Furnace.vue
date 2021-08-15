@@ -2,7 +2,7 @@
   <div>
     <h4>Furnace</h4>
     <div>
-      <img v-tooltip="'1x Wood -> 1x Charcoal'" :src="charcoalIcon" @click="craftCharcoal">
+      <img :src="charcoalIcon" @click="craftCharcoal">
     </div>
   </div>
 </template>

@@ -1,1 +1,11 @@
-/** Nothing for now */
+/** https://www.npmjs.com/package/v-tooltip#style-examples */
+
+.inventory {
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+}
+
+.item {
+    border: 1px solid black;
+}
