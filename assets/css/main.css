@@ -8,12 +8,18 @@ body {
     box-sizing: border-box;
 }
 
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
 .columns {
     display: flex;
 }
 
 .column {
-    
+
 }
 
 .inventory {
@@ -27,9 +33,9 @@ body {
     width: 64px;
     height: 64px;
     overflow: hidden;
-    margin-right: 0.2em;
+    cursor: pointer;
 }
 
-.icon {
+.item > img {
     width: 100%;
 }
