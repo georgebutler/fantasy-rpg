@@ -1,8 +1,8 @@
 <template>
   <div>
     <h4>Furnace</h4>
-    <div>
-      <img :src="charcoalIcon" @click="craftCharcoal">
+    <div v-tooltip="`Charcoal`" class="item">
+      <img :src="charcoalIcon" class="icon" @click="craftCharcoal">
     </div>
   </div>
 </template>

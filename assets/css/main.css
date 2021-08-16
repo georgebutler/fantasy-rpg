@@ -1,5 +1,21 @@
 /** https://www.npmjs.com/package/v-tooltip#style-examples */
 
+html,
+body {
+    background-color: #fff;
+    color: #111;
+    font-family: sans-serif;
+    box-sizing: border-box;
+}
+
+.columns {
+    display: flex;
+}
+
+.column {
+    
+}
+
 .inventory {
     display: flex;
     flex-wrap: wrap;
@@ -8,4 +24,12 @@
 
 .item {
     border: 1px solid black;
+    width: 64px;
+    height: 64px;
+    overflow: hidden;
+    margin-right: 0.2em;
+}
+
+.icon {
+    width: 100%;
 }
