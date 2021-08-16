@@ -1,13 +1,13 @@
 <template>
   <div>
-    <h2>Inventory</h2>
-    <h5>Currency</h5>
-    <div>
-      <div>Gold: {{ gold }}</div>
+    <div class="subtitle">
+      Inventory
     </div>
-    <h5>Items</h5>
-    <div class="inventory">
-      <div v-for="item in items" :key="item.id">
+    <div>
+      <div>{{ gold }}g</div>
+    </div>
+    <div class="columns is-gapless is-multiline is-mobile is-vcentered">
+      <div v-for="item in items" :key="item.id" class="column is-narrow">
         <Item :item="item" />
       </div>
     </div>

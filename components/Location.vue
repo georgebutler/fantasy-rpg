@@ -1,11 +1,16 @@
 <template>
-  <div class="location">
-    <h2>{{ name }}</h2>
-    <h5>Actions</h5>
-    <div>
-      <slot />
+  <section class="hero">
+    <div class="hero-body">
+      <div class="container">
+        <div class="title">
+          {{ name }}
+        </div>
+        <div>
+          <slot />
+        </div>
+      </div>
     </div>
-  </div>
+  </section>
 </template>
 
 <script>
