@@ -5,22 +5,26 @@
     </Location>
 
     <div>
-      <h2>Tower</h2>
-      <Furnace />
-    </div>
+      <div>
+        <h2>Tower</h2>
+        <Furnace />
+      </div>
 
-    <Inventory />
+      <div>
+        <Inventory />
+      </div>
 
-    <div>
-      <h2>Log</h2>
-      <button @click="addLogMessage">
-        Add Log Message
-      </button>
-      <ul>
-        <li v-for="message in messages" :key="message.timestamp">
-          <span>{{ message.text }}</span>
-        </li>
-      </ul>
+      <div>
+        <h2>Log</h2>
+        <button @click="addLogMessage">
+          Add Log Message
+        </button>
+        <ul>
+          <li v-for="message in messages" :key="message.timestamp">
+            <span>{{ message.text }}</span>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 </template>
